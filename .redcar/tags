@@ -1,0 +1,6 @@
+1292325922
+Eluka	/Users/raditya/Projects/eluka/lib/eluka/model.rb	module Eluka
+Model	/Users/raditya/Projects/eluka/lib/eluka/model.rb		class Model
+TestCase	/Users/raditya/Projects/eluka/test/helper.rb	class Test::Unit::TestCase
+TestEluka	/Users/raditya/Projects/eluka/test/test_eluka.rb	class TestEluka 
+i	/Users/raditya/Projects/eluka/lib/eluka/model.rb			def i
