@@ -55,3 +55,13 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+task :install do
+  puts "Install"
+  `touch /tmp/12345install`
+end
+
+task :make_gem do
+  puts "Make Gem"
+  `touch /tmp/12345make_gem` 
+end
