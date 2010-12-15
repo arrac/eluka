@@ -25,7 +25,7 @@ Jeweler::Tasks.new do |gem|
   #  gem.add_development_dependency 'rspec', '> 1.2.3'
   
   gem.add_dependency 'ferret'
-  
+  gem.executables = ['install.rb']
 end
 
 Jeweler::RubygemsDotOrgTasks.new
