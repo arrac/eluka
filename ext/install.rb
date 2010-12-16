@@ -6,3 +6,5 @@ f.puts "Hi"
 puts "In extconf.rb"
 
 f.close
+
+1
