@@ -12,23 +12,25 @@ module Eluka
       @labels[:positive]  =  1
       @labels[:negative]  = -1
       @labels[:unknown]   =  0
-  
+      
+      @gem_root           = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+      @bin_dir            = File.expand_path(File.join(File.dirname(@gem_root), 'bin'))
+
       @analyzer           = StandardAnalyzer.new
       @features           = Eluka::Features.new
       @fv_train           = Eluka::FeatureVectors.new(@features, true)
       @fv_test            = nil
       
       @directory          = (params[:directory]         or "/tmp")
-      @svm_train_path     = (params[:svm_train_path]    or "rsvm/bin/svm-train")
-      @svm_scale_path     = (params[:svm_scale_path]    or "rsvm/bin/svm-scale")
-      @svm_predict_path   = (params[:svm_predict_path]  or "rsvm/bin/svm-predict")
+      @svm_train_path     = (params[:svm_train_path]    or "#{@bin_dir}/eluka-svm-train")
+      @svm_scale_path     = (params[:svm_scale_path]    or "#{@bin_dir}/eluka-svm-scale")
+      @svm_predict_path   = (params[:svm_predict_path]  or "#{@bin_dir}/eluka-svm-predict")
       @grid_py_path       = (params[:grid_py_path]      or "python rsvm/tools/grid.py")
       @fselect_py_path    = (params[:fselect_py_path]   or "python rsvm/tools/fselect.py")
       @verbose            = (params[:verbose]           or false)
       
       #Convert directory to absolute path
       Dir.chdir(@directory) do @directory = Dir.pwd end
-      
     end
     
     # Add a data point to the training data

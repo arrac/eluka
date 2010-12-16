@@ -4,9 +4,9 @@ require 'eluka'
 require 'pp'
 
 model = Eluka::Model.new(:directory => '/Users/raditya/Desktop',
-                  :svm_train_path   => "/opt/local/bin/svm-train",
-                  :svm_scale_path   => "/opt/local/bin/svm-scale",
-                  :svm_predict_path => "/opt/local/bin/svm-predict",
+#                  :svm_train_path   => "/opt/local/bin/svm-train",
+#                  :svm_scale_path   => "/opt/local/bin/svm-scale",
+#                  :svm_predict_path => "/opt/local/bin/svm-predict",
                   :grid_py_path     => "python /Users/raditya/Dropbox/Yahoo Internship/Code/libsvm-3.0/tools/grid.py",
                   :fselect_py_path  => "python /Users/raditya/Dropbox/Yahoo Internship/Code/libsvm-3.0/tools/fselect.py")
 
