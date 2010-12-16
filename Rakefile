@@ -26,7 +26,7 @@ Jeweler::Tasks.new do |gem|
   #  gem.add_development_dependency 'rspec', '> 1.2.3'
   
   gem.add_dependency 'ferret'
-  gem.extensions.push 'ext/install.rb'
+  gem.extensions.push 'ext/libsvm'
 end
 
 Jeweler::RubygemsDotOrgTasks.new
@@ -57,18 +57,13 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-task :install do
-  puts "Install"
-  `touch /tmp/12345install`
-end
-
-task :make_gem do
-  puts "Make Gem"
-  `touch /tmp/12345make_gem` 
-end
-
-task :build do
-  puts "Build"
-  `touch /tmp/12345build`
-end
-  
+# task :install do
+#   puts "Install"
+#   `touch /tmp/12345install`
+# end
+# 
+# task :build do
+#   puts "Build"
+#   `touch /tmp/12345build`
+# end
+#   
