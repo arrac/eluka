@@ -1,6 +1,26 @@
 
 module Eluka
+
+  #A binary classifier classifies data into two classes given a category (the class label)
+  # a. Data which is indicative of the category -- positive data
+  # b. Data which is not indicative of the category -- negative data
+  #
+  #== Model
+  # A classifier model observes positve and negative data and learns the properties of 
+  #each set. In the future if given an unlabelled data point it decides whether the
+  #the data point is a positive or negative instance of the category.
+  #
+  #=== Internal Data Representation
+  # A classifier model internally represents a data instance as a point in a vector space
+  # The dimensions of the vector space are termed as features
+  #
+  #=== Eluka::Model
+  # An Eluka model takes a hash of features and their values and internally processes them
+  #as points in a vector space. If the input is a string of words like in a document then
+  #it relies on Ferret's text anaysis modules to convert it into a data point
+  
   class Model
+  
     include Ferret::Analysis
     
     # Initialize the classifier with sane defaults 
