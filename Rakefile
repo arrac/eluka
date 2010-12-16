@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -65,3 +66,14 @@ task :make_gem do
   puts "Make Gem"
   `touch /tmp/12345make_gem` 
 end
+
+task :build do
+  puts "Build"
+  `touch /tmp/12345build`
+end
+
+namespace :install do
+  puts "NInstall"
+  `touch /tmp/12345Ninstall`
+end
+  
