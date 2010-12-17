@@ -2,7 +2,7 @@ CXX ?= g++
 CFLAGS = -Wall -Wconversion -O3 -fPIC
 SHVER = 2
 
-all: svm-train svm-predict svm-scale
+all: clean svm-train svm-predict svm-scale
 
 lib: svm.o
 	$(CXX) -shared -dynamiclib svm.o -o libsvm.so.$(SHVER)
