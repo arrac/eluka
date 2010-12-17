@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{eluka}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aditya Rachakonda"]
   s.date = %q{2010-12-17}
-  s.description = %q{longer description of your gem}
+  s.description = %q{A LibSVM based support vector machine classifier for Ruby.}
   s.email = %q{aditya.rachakonda@gmail.com}
   s.extensions = ["ext/libsvm/extconf.rb", "ext/libsvm"]
   s.extra_rdoc_files = [
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "eluka.gemspec",
     "examples/example.rb",
     "ext/libsvm/COPYRIGHT",
     "ext/libsvm/FAQ.html",
@@ -68,7 +69,6 @@ Gem::Specification.new do |s|
     "ext/libsvm/svm.cpp",
     "ext/libsvm/svm.def",
     "ext/libsvm/svm.h",
-    "ext/libsvm/svm.o",
     "ext/libsvm/tools/README",
     "ext/libsvm/tools/checkdata.py",
     "ext/libsvm/tools/easy.py",
@@ -95,7 +95,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{one-line summary of your gem}
+  s.summary = %q{A LibSVM based support vector machine classifier for Ruby.}
   s.test_files = [
     "examples/example.rb",
     "test/helper.rb",
