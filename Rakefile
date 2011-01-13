@@ -26,6 +26,7 @@ Jeweler::Tasks.new do |gem|
   #  gem.add_development_dependency 'rspec', '> 1.2.3'
   
   gem.add_dependency 'ferret'
+  gem.add_development_dependency 'hanna'
   gem.extensions.push 'ext/libsvm'
 end
 
@@ -47,7 +48,8 @@ end
 
 task :default => :test
 
-require 'rake/rdoctask'
+#require 'rake/rdoctask'
+require 'hanna/rdoctask'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 

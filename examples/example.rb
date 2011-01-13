@@ -3,12 +3,9 @@ require 'rubygems'
 require 'eluka'
 require 'pp'
 
-model = Eluka::Model.new(:directory => '/Users/raditya/Desktop',
-#                  :svm_train_path   => "/opt/local/bin/svm-train",
-#                  :svm_scale_path   => "/opt/local/bin/svm-scale",
-#                  :svm_predict_path => "/opt/local/bin/svm-predict",
-                  :grid_py_path     => "python /Users/raditya/Dropbox/Yahoo Internship/Code/libsvm-3.0/tools/grid.py",
-                  :fselect_py_path  => "python /Users/raditya/Dropbox/Yahoo Internship/Code/libsvm-3.0/tools/fselect.py")
+model = Eluka::Model.new( :directory => '/Users/raditya/Desktop',
+                          :grid_py_path     => "python /Users/raditya/Dropbox/Yahoo Internship/Code/libsvm-3.0/tools/grid.py",
+                          :fselect_py_path  => "python /Users/raditya/Dropbox/Yahoo Internship/Code/libsvm-3.0/tools/fselect.py")
 
 d1 = {:x => 3, :y => 1}
 d2 = {:x => 1, :y => 3}

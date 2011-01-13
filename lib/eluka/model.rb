@@ -36,10 +36,10 @@ module Eluka
       @gem_root           = File.expand_path(File.join(File.dirname(__FILE__), '..'))
       @bin_dir            = File.expand_path(File.join(File.dirname(@gem_root), 'bin'))
 
-      @analyzer           = StandardAnalyzer.new
-      @features           = Eluka::Features.new
-      @fv_train           = Eluka::FeatureVectors.new(@features, true)
-      @fv_test            = nil
+      @analyzer           = StandardAnalyzer.new                        #An analyzer to parse text
+      @features           = Eluka::Features.new                         #An object to handle the features created from the data
+      @fv_train           = Eluka::FeatureVectors.new(@features, true)  #Each data point becomes a vector on the features
+      @fv_test            = nil                                         #@fv_train and @fv_test contain the feature vectors of the train and test data
       
       @directory          = (params[:directory]         or "/tmp")
       @svm_train_path     = (params[:svm_train_path]    or "#{@bin_dir}/eluka-svm-train")
@@ -49,28 +49,40 @@ module Eluka
       @fselect_py_path    = (params[:fselect_py_path]   or "python rsvm/tools/fselect.py")
       @verbose            = (params[:verbose]           or false)
       
+      #Warn if there is no directory specified
+      warn "Warning: No directory specified while creating the model. Using /tmp instead." if (@directory == "/tmp" and @verbose)
+      
       #Convert directory to absolute path
       Dir.chdir(@directory) do @directory = Dir.pwd end
     end
     
-    # Add a data point to the training data
+    # Adds a data point to the training data
   
     def add (data, label)
       raise "No meaningful label associated with data" unless ([:positive, :negative].include? label)
-  
+      
+      #Create a data point in the vector space from the datum given
       data_point = Eluka::DataPoint.new(data, @analyzer)
+      
+      #Add the data point to the feature space
+      #Expand the training feature space to include the data point
       @fv_train.add(data_point.vector, @labels[label])
-        end
+    end
   
-    # Build a model from the training data using LibSVM
+    # Builds a model from the training data using LibSVM
+    #  
     
     def build (features = nil)
-      File.open(@directory + "/train", "w") do |f| f.puts @fv_train.to_libSVM(features) end
+      File.open(@directory + "/train", "w") do |f| 
+        f.puts @fv_train.to_libSVM(features) 
+      end
       
+      #Execute the LibSVM model train process without much fanfare
       output = `#{@svm_train_path} #{@directory}/train #{@directory}/model`
       
       puts output if (@verbose)
   
+      #To determine the 
       @fv_test  = Eluka::FeatureVectors.new(@features, false)
       return output
     end
@@ -123,6 +135,14 @@ module Eluka
       end
       
       return sel_features
+    end
+    
+    # Searches the grid for an optimal C and g values
+    # IMPROVE: Let the user determine the parameters for the grid search
+    # TODO: Get grid serach working
+    
+    def optimize
+      
     end
   end
 

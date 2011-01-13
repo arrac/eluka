@@ -2,6 +2,7 @@
 #Source inspired from a post in some forum
 #Author: Unknown
 module Eluka
+  # :stopdoc:
   class Bijection < Hash
     def initialize(*args)
       super(*args)
